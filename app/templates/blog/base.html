@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="个人博客">
+    <meta name="Description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog/css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog/css/style.css') }}">
+    <script src="{{ url_for('static', filename='blog/js/jquery1.42.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='blog/js/jquery.SuperSlide.2.1.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='blog/js/calendar.js') }}"></script>
+    <!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='blog/js/html5.js') }}"></script>
+    <![endif]-->
+    <title>{% block title %}个人博客{% endblock %}</title>
+    {% block head_import %}{% endblock %}
+</head>
+<body>
+{% block body %}
+    <div id="header">
+        {% block header %}
+        <h1>个人博客</h1>
+        <p>青春是打开了,就合不上的书。人生是踏上了，就回不了头的路，爱情是扔出了，就收不回的赌注。</p>
+        <div id="nav">
+            <div id="nav_left">
+                <ul>
+                <li><a href="{{ url_for('blog.index') }}">首页</a></li>
+                <li><a href="{{ url_for('blog.about') }}">关于我</a></li>
+                <li><a href="{{ url_for('blog.shuo') }}">碎言碎语</a></li>
+                <li><a href="{{ url_for('blog.diary') }}">个人日记</a></li>
+                <li><a href="{{ url_for('blog.photo') }}">相册展示</a></li>
+                <li><a href="{{ url_for('blog.learn') }}">学无止境</a></li>
+                <li><a href="{{ url_for('blog.guestbook') }}">留言板</a></li>
+                <div class="clear"></div>
+            </ul>
+            </div>
+            <div id="nav_right">
+                <span class="item-text" id="login">登陆</span> / <span class="item-text" id="register">注册</span>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <div id="footer">
+        {% block footer %}
+        <p>Design by:<a href="#">xxx</a></p>
+        {% endblock %}
+    </div>
+    {% block script %}
+        <script>
+            jQuery('.lanmubox').slide({easing: 'easeOutBounce', delayTime: 400})
+        </script>
+        <script src="{{ url_for('static', filename='blog/js/nav.js') }}"></script>
+    {% endblock %}
+{% endblock %}
+</body>
+</html>

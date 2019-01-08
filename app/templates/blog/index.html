@@ -1,0 +1,88 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <div class="left" id="c_left">
+        <div class="s_tuijian"><h2>文章<span>推荐</span></h2></div>
+        <div class="content_text">
+        {% for item in blog_list %}
+            <div class="wz">
+                <h3><a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></h3>
+                <dl>
+                    <dt>
+                    {% if item.img_url and item.img_url != '' %}
+                        <img src="{{ item.img_url }}" width="200" height="123" alt="">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='blog/images/photo/10.jpg') }}" width="200" height="123" alt="">
+                    {% endif %}
+                    </dt>
+                    <dd>
+                        <p class="dd_text_1">{{ item.content }}</p>
+                        <p class="dd_text_2">
+                            <span class="left author">孤狼</span>
+                            <span class="left sj">时间：{{ item.time_create }}</span>
+                            <span class="left fl">分类：<a href="#" title=""></a></span>
+                            <span class="left yd"><a href="#" title="阅读全文">阅读全文</a></span>
+                            <div class="clear"></div>
+                        </p>
+                    </dd>
+                    <div class="clear"></div>
+                </dl>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="right" id="c_right">
+        <div class="s_about">
+{#            <h2>关于博主</h2>#}
+{#            <img src="{{ url_for('static', filename='blog/images/my.jpg') }}" width="230" height="230" alt="博主">#}
+{#            <p>博主：XXX</p>#}
+{#            <p>职业：搬砖</p>#}
+{#            <p>简介：</p>#}
+{#            <p>#}
+{#                <a href="tencent://message/?Site=baidu.com&uin=1107756736&Menu=yes" title="联系博主"><span class="left b_1"></span></a><a href="" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>#}
+{#                <div class="clear"></div>#}
+{#            </p>#}
+            <div id="calendar"></div>
+        </div>
+        <div class="lanmubox">
+            <div class="hd">
+                <ul>
+                    <li>精心推荐</li>
+                    <li>最新文章</li>
+                    <li class="hd_3">随机文章</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                <li><a href="" title="网站项目实战开发">网站项目实战开发</a></li>
+                <li><a href="" title="网站项目实战开发">网站项目实战开发</a></li>
+                <li><a href="" title="网站项目实战开发">网站项目实战开发</a></li>
+                <li><a href="" title="网站项目实战开发">网站项目实战开发</a></li>
+                <li><a href="" title="网站项目实战开发">网站项目实战开发</a></li>
+            </ul>
+                <ul>
+                <li><a href="" title="关于响应式布局">关于响应式布局</a></li>
+                <li><a href="" title="关于响应式布局">关于响应式布局</a></li>
+                <li><a href="" title="关于响应式布局">关于响应式布局</a></li>
+                <li><a href="" title="关于响应式布局">关于响应式布局</a></li>
+                <li><a href="" title="关于响应式布局">关于响应式布局</a></li>
+            </ul>
+                <ul>
+                <li><a href="" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                <li><a href="" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                <li><a href="" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                <li><a href="" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                <li><a href="" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="link">
+            <h2>友情链接</h2>
+            <p><a href="https://www.cnblogs.com/" target="_blank">博客园</a></p>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script>
+        new calendar('calendar');
+    </script>
+{% endblock %}
